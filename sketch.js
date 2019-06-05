@@ -1,46 +1,45 @@
-var myC = {
-x: 600,
-y: 400
-}
-var ctPoint = {
-    x: 300,
-    y: 200
-}
+let cell;
+var status = 0;
 
-var x = 0;
-var speed = 3;
-var y = 100;
+let currentTick = 0;
+let tickRate = 500;
+
+let cellSize = 10
+let gridSize = 40
+
 function setup() {
-    var myCanvas = createCanvas(myC.x, myC.y);
-    myCanvas.parent('myContainer');
-    frameRate(300);
-    
-}
-function draw(){
-    background (0);
-    stroke(500);
-    cColor();
-    strokeWeight(4);
-    noFill();
-    y = 100;
-    y = y + random(100,120);
-    ellipse(x ,y,20,20);
-    eBounce();
-    x = x + speed;
-
-    }
-
-
-function eBounce(){
-    if( x > width){
-        speed = -5;
-
-    } else if (x < 0){
-        speed = 5
-    }
+  createCanvas(cellSize * gridSize, cellSize * gridSize);
+  // initialize grid with default values
 }
 
-function cColor(){
-    if(x > width / 2)
-    stroke(100);
+function draw() {
+  controlTime();
 }
+
+function controlTime() {
+  if(currentTick > tickRate){
+    tick();
+    currentTick = 0;
+  }else {
+    currentTick++;
+  }
+}
+
+function tick(){
+  console.log("Running");
+  // create n cells 
+  // display grid
+
+  // let pos = new TwoDPos(20, 30);
+  // let cellOne = new Cell(pos, true);
+  // let cellTwo = new Cell(new TwoDPos(50,60), false);
+  // cellOne.log();
+  // cellTwo.log();
+}
+
+
+
+
+
+
+
